@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        p {
+            font-size: 18px;
+            margin: 8px 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            text-align: center;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Order Details</h2>
+        <p><strong>Order ID:</strong> {{ order.id }}</p>
+        <p><strong>Product Name:</strong> {{ order.product.name }}</p>
+        <p><strong>Quantity:</strong> {{ order.quantity }}</p>
+        <p><strong>Price:</strong> {{ order.price }}</p>
+        <p><strong>Discount:</strong> {{ order.discount }}%</p>
+        <p><strong>Final Price:</strong> {{ order.final_price }}</p>
+        <p><strong>Product Status:</strong> {{ order.product.get_status_display }}</p>
+
+        <a href="{% url 'order_update' order.id %}" class="btn">Edit Order</a>
+        <a href="{% url 'order_list' %}" class="btn btn-secondary">Back to Orders</a>
+    </div>
+</body>
+</html>
